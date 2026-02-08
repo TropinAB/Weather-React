@@ -3,12 +3,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const NODE_ENV = process.env.NODE_ENV || "production";
-const PREFIX = NODE_ENV === "production" ? "/JS-Template/" : "/";
+const PREFIX = NODE_ENV === "production" ? "/Weather-React/" : "/";
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/index.tsx", 
   resolve: {
-    extensions: [".tsx", ".ts", ".js"],
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
   },
   output: {
     publicPath: PREFIX,
@@ -41,6 +41,16 @@ module.exports = {
   ],
   module: {
     rules: [
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: {
+      //     loader: 'babel-loader',
+      //     options: {
+      //       presets: ['@babel/preset-env', '@babel/preset-react']
+      //     }
+      //   }
+      // }, 
       {
         test: /\.tsx?$/,
         use: "ts-loader",
