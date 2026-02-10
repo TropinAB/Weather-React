@@ -23,9 +23,10 @@ const config = {
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: undefined,
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}",
+    "src/**/*.{ts,tsx,js,jsx}",
     '!src/**/*.d.ts',
     "!src/index.ts",
+    "!src/index.tsx",
     "!**/node_modules/**",
   ],
 
@@ -95,11 +96,11 @@ const config = {
     "js",
   //   "mjs",
   //   "cjs",
-  //   "jsx",
+    "jsx",
     "ts",
   //   "mts",
   //   "cts",
-  //   "tsx",
+    "tsx",
     "json",
   //   "node"
   ],
@@ -172,7 +173,8 @@ const config = {
   // The glob patterns Jest uses to detect test files
   testMatch: [
   //   "**/__tests__/**/*.?([mc])[jt]s?(x)",
-    "**/?(*.)+(spec|test).?([mc])[jt]s?(x)"
+    "**/?(*.)+(spec|test).?([mc])[jt]s?(x)",
+    // "<rootDir>/src/**/*.test.{js,jsx,ts,tsx}",
   ],
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
@@ -191,7 +193,8 @@ const config = {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.ts$': 'ts-jest',
+    // '^.+\\.ts$': 'ts-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
   },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
