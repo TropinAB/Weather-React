@@ -26,12 +26,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: "index.html",
       publicPath: PREFIX,
-      // template: "src/index.html",
+      template: './public/index.html',
     }),
     new HtmlWebpackPlugin({
       filename: "404.html",
       publicPath: PREFIX,
-      // template: "src/index.html",
+      template: './public/index.html',
     }),
     new webpack.DefinePlugin({
       PRODUCTION: NODE_ENV === "production",
