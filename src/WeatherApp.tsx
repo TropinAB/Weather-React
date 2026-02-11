@@ -13,7 +13,9 @@ export function WeatherApp() {
     <div className="WeatherApp">
       <PageHeader />
       <MainMenu currentPage={currentPage} onClick={setCurrentPage} />
-      {currentPage === "City" && <City cityName={cityName} onChangeCityName={setCityName} />}
+      {currentPage === "City" && (
+        <City cityName={cityName} onChangeCityName={setCityName} />
+      )}
       {currentPage === "About" && <About />}
     </div>
   );

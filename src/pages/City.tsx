@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import * as geo from "../service/geoJS";
-import * as weather from "../service/openWeatherMap";
-import * as weatherHistory from "../service/weatherHistory";
+import { eventBus } from "../services/EventBus";
+import * as geo from "../services/geoJS";
+import * as weather from "../services/openWeatherMap";
+import * as weatherHistory from "../services/weatherHistory";
 
 import { CityHistory } from "../components/CityHistory";
 import { CityInputForm } from "../components/CityInputForm";
 import { CityMap } from "../components/CityMap";
 import { CityWeather } from "../components/CityWeather";
-import { eventBus } from "../service/EventBus";
 import { GeoJSLocation } from "../types/geoJS";
 import { WeatherData } from "../types/openWeatherMap";
 import { WeatherHistory } from "../types/weatherHistory";
@@ -15,7 +15,7 @@ import { WeatherHistory } from "../types/weatherHistory";
 interface CityProps {
   cityName: string;
   onChangeCityName: (cityName: string) => void;
-};
+}
 
 export function City({ cityName, onChangeCityName }: CityProps) {
   const [message, setMessage] = useState<string>("");
@@ -34,7 +34,11 @@ export function City({ cityName, onChangeCityName }: CityProps) {
 
       eventBus.on(weather.eventNameResult, setWeatherData);
       eventBus.on(weather.eventNameError, setMessage);
-      eventBus.triggerDebounced(1000, weather.eventNameRequestForCity, cityName);
+      eventBus.triggerDebounced(
+        1000,
+        weather.eventNameRequestForCity,
+        cityName,
+      );
     } else {
       // Запросить текущие координаты
       setMessage("Определение текущего местоположения");
@@ -58,7 +62,11 @@ export function City({ cityName, onChangeCityName }: CityProps) {
 
       eventBus.on(weather.eventNameResult, setWeatherData);
       eventBus.on(weather.eventNameError, setMessage);
-      eventBus.trigger(weather.eventNameRequestForLocation, locationData.latitude, locationData.longitude);
+      eventBus.trigger(
+        weather.eventNameRequestForLocation,
+        locationData.latitude,
+        locationData.longitude,
+      );
     }
   }, [locationData]);
 
@@ -73,15 +81,26 @@ export function City({ cityName, onChangeCityName }: CityProps) {
     onChangeCityName(newCityName);
   }
 
-  return <div>
-    <div className="flex-container">
-      <CityInputForm cityName={cityName} onChange={handlerChangeCityName} />
-      <CityHistory historyData={historyData} onChangeCityName={onChangeCityName} />
+  return (
+    <div>
+      <div className="flex-container">
+        <CityInputForm cityName={cityName} onChange={handlerChangeCityName} />
+        <CityHistory
+          historyData={historyData}
+          onChangeCityName={onChangeCityName}
+        />
+      </div>
+      {weatherData && (
+        <div className="flex-container border">
+          <CityMap
+            lon={weatherData.coord.lon}
+            lat={weatherData.coord.lat}
+            cityName={weatherData.name}
+          />
+          <CityWeather weatherData={weatherData} />
+        </div>
+      )}
+      {message && <div className="border">{message}</div>}
     </div>
-    {weatherData && <div className="flex-container border">
-      <CityMap lon={weatherData.coord.lon} lat={weatherData.coord.lat} cityName={weatherData.name} />
-      <CityWeather weatherData={weatherData} />
-    </div>}
-    {message && <div className="border">{message}</div>}
-  </div>
+  );
 }
