@@ -41,7 +41,7 @@ function addToWeatherHistory(weatherData: WeatherData): void {
       city: weatherData.name,
       temp: weatherData.main.temp,
       wind: weatherData.wind.speed,
-      date: new Date().toLocaleString(),
+      date: new Date().toLocaleString("ru-RU"),
     };
     weatherHistory.unshift(historyItem);
 
