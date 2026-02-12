@@ -51,10 +51,10 @@ describe("Check weatherHistory", () => {
     name: "Санкт-Петербург",
     cod: 200,
   };
-  const mockDate = new Date("2024-01-15T12:00:00Z");
+  const mockDate = new Date(Date.UTC(2026, 1, 1, 0, 0, 0));
   const weatherHistoryData = {
     city: "Санкт-Петербург",
-    date: mockDate.toLocaleString(),
+    date: mockDate.toLocaleString("ru-RU"),
     temp: 1.7,
     wind: 5,
   };
