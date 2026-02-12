@@ -74,7 +74,7 @@ export function City({ cityName, onChangeCityName }: CityProps) {
   useEffect(() => {
     if (weatherData === undefined) return;
     if (weatherData && weatherData.name) {
-      eventBus.on(weatherHistory.eventNameResult, setHistoryData)
+      eventBus.on(weatherHistory.eventNameResult, setHistoryData);
       eventBus.trigger(weatherHistory.eventNameAddToWH, weatherData);
       setMessage(""); // очистить сообщение
     } else {
