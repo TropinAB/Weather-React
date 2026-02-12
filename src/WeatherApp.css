@@ -74,10 +74,6 @@ body {
   /* color: red; */
 }
 
-.underline {
-  text-decoration: underline;
-}
-
 .input-description {
   color: black;
   margin: 5px;
@@ -110,4 +106,8 @@ body {
 
 .history-wh {
   column-count: 2;
+}
+
+.history-item {
+  text-decoration: underline;
 }

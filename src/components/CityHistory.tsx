@@ -7,40 +7,16 @@ interface CityHistoryProps {
   onChangeCityName: (cityName: string) => void;
 }
 
-export function CityHistory({
-  historyData,
-  onChangeCityName,
-}: CityHistoryProps) {
-  const rows: ReactElement[] | null = [];
-  historyData &&
-    historyData.map((history: WeatherHistory) => {
-      return (
-        <li key={history.city}>
-          <CityHistoryRow
-            history={history}
-            onChangeCityName={onChangeCityName}
-          />
-        </li>
-      );
-      // return <CityHistoryRow history={history} onChangeCityName={onChangeCityName} />;
-    });
+export function CityHistory({ historyData, onChangeCityName }: CityHistoryProps) {
   return (
     <div className="border width100">
       <p className="info-header">История просмотра данных о погоде</p>
-      <ul className="history-wh">
-        {historyData &&
-          historyData.map((history: WeatherHistory) => {
-            return (
-              <li key={history.city}>
-                <CityHistoryRow
-                  history={history}
-                  onChangeCityName={onChangeCityName}
-                />
-              </li>
-            );
-            // return <CityHistoryRow history={history} onChangeCityName={onChangeCityName} />;
-          })}
-      </ul>
+      {historyData && <ul className="history-wh"
+        onClick={(e) => onChangeCityName((e.target as HTMLLinkElement).id)}
+      >
+        {historyData.map((history: WeatherHistory) =>
+          <CityHistoryRow key={history.city} history={history} />)}
+      </ul>}
     </div>
   );
 }

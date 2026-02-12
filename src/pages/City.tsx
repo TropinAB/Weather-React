@@ -19,8 +19,8 @@ interface CityProps {
 
 export function City({ cityName, onChangeCityName }: CityProps) {
   const [message, setMessage] = useState<string>("");
-  const [locationData, setLocationData] = useState<GeoJSLocation | null>(null);
-  const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
+  const [locationData, setLocationData] = useState<GeoJSLocation | null>();
+  const [weatherData, setWeatherData] = useState<WeatherData | null>();
   const [historyData, setHistoryData] = useState<WeatherHistory[]>([]);
 
   useEffect(() => {
@@ -49,6 +49,7 @@ export function City({ cityName, onChangeCityName }: CityProps) {
   }, [cityName]);
 
   useEffect(() => {
+    if (locationData === undefined) return;
     if (
       !locationData ||
       !locationData.latitude ||
@@ -56,7 +57,7 @@ export function City({ cityName, onChangeCityName }: CityProps) {
       locationData.latitude === "nil" ||
       locationData.longitude === "nil"
     ) {
-      setMessage("Не удалось определить Ваше местоположение :(");
+      setMessage("Не удалось получить данные о местоположении :(");
     } else {
       setMessage("Загрузка данных погоды по координатам");
 
@@ -71,10 +72,14 @@ export function City({ cityName, onChangeCityName }: CityProps) {
   }, [locationData]);
 
   useEffect(() => {
+    if (weatherData === undefined) return;
     if (weatherData && weatherData.name) {
+      eventBus.on(weatherHistory.eventNameResult, setHistoryData)
       eventBus.trigger(weatherHistory.eventNameAddToWH, weatherData);
+      setMessage(""); // очистить сообщение
+    } else {
+      setMessage("Не удалось получить данные о погоде :("); // очистить сообщение
     }
-    setMessage(""); // очистить сообщение
   }, [weatherData]);
 
   function handlerChangeCityName(newCityName: string) {
@@ -100,7 +105,7 @@ export function City({ cityName, onChangeCityName }: CityProps) {
           <CityWeather weatherData={weatherData} />
         </div>
       )}
-      {message && <div className="border">{message}</div>}
+      {message && <div className="border message">{message}</div>}
     </div>
   );
 }
