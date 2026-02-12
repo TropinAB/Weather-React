@@ -101,6 +101,7 @@ describe("Check runApp", () => {
   global.fetch = jest.fn();
   beforeEach(() => {
     jest.useFakeTimers();
+    process.env.TZ = "UTC";
     jest.setSystemTime(new Date(Date.UTC(2026, 1, 1, 0, 0, 0)));
     jest.clearAllMocks();
   });
