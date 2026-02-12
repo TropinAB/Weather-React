@@ -1,4 +1,3 @@
-import { ReactElement } from "react";
 import { WeatherHistory } from "../types/weatherHistory";
 import { CityHistoryRow } from "./CityHistoryRow";
 

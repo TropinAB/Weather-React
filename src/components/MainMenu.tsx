@@ -1,5 +1,3 @@
-import { EventHandler } from "react";
-
 export function MainMenu({
   currentPage,
   onClick,
