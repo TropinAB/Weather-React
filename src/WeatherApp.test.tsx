@@ -102,7 +102,7 @@ describe("Check runApp", () => {
   beforeEach(() => {
     jest.spyOn(Date.prototype, "toLocaleString").mockImplementation(function (
       this: Date,
-      locale,
+      _locale,
       options,
     ) {
       // Принудительно используем UTC + ru-RU
