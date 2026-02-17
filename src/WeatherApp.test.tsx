@@ -139,7 +139,7 @@ describe("Check runApp", () => {
     expect(message.innerHTML).toBe(errorMessage);
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"></ul></div></div><div class="border message">Ошибка 404: Страница не найдена</div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"></div></div></div><div class="border message">Ошибка 404: Страница не найдена</div></div></div>"`,
     );
   });
 
@@ -156,7 +156,7 @@ describe("Check runApp", () => {
     expect(message.innerHTML).toBe(errorMessage);
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"></ul></div></div><div class="border message">Не удалось получить данные о местоположении :(</div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"></div></div></div><div class="border message">Не удалось получить данные о местоположении :(</div></div></div>"`,
     );
   });
 
@@ -172,7 +172,7 @@ describe("Check runApp", () => {
     expect(message.innerHTML).toBe(ERROR_MESSAGE);
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"></ul></div></div><div class="border message">Network error</div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"></div></div></div><div class="border message">Network error</div></div></div>"`,
     );
   });
 
@@ -189,7 +189,7 @@ describe("Check runApp", () => {
     expect(message.innerHTML).toBe(errorMessage);
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"></ul></div></div><div class="border message">Не удалось получить данные о местоположении :(</div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"></div></div></div><div class="border message">Не удалось получить данные о местоположении :(</div></div></div>"`,
     );
   });
 
@@ -207,7 +207,7 @@ describe("Check runApp", () => {
     expect(message.innerHTML).toBe(ERROR_MESSAGE);
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"></ul></div></div><div class="border message">Network error</div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"></div></div></div><div class="border message">Network error</div></div></div>"`,
     );
   });
 
@@ -226,7 +226,7 @@ describe("Check runApp", () => {
     expect(message.innerHTML).toBe(errorMessage);
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"></ul></div></div><div class="border message">Ошибка 404: Страница не найдена</div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"></div></div></div><div class="border message">Ошибка 404: Страница не найдена</div></div></div>"`,
     );
   });
 
@@ -245,7 +245,7 @@ describe("Check runApp", () => {
     expect(message.innerHTML).toBe(errorMessage);
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"></ul></div></div><div class="border message">Не удалось получить данные о погоде :(</div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"></div></div></div><div class="border message">Не удалось получить данные о погоде :(</div></div></div>"`,
     );
   });
 
@@ -278,9 +278,9 @@ describe("Check runApp", () => {
     await waitFor(
       () => {
         jest.advanceTimersByTime(100);
-        expect(container.querySelectorAll("a.history-item")).not.toHaveLength(
-          0,
-        );
+        expect(
+          container.querySelectorAll("button.history-item"),
+        ).not.toHaveLength(0);
       },
       {
         timeout: 2000,
@@ -289,7 +289,7 @@ describe("Check runApp", () => {
 
     expect(fetch).toHaveBeenCalledTimes(2);
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"><li><a class="history-item" id="Санкт-Петербург">Санкт-Петербург: 1.7°C (01.02.2026, 00:00:00)</a></li></ul></div></div><div class="flex-container border"><div content="weather-map"><img class="weather-map" alt="Карта Санкт-Петербург" src="https://static-maps.yandex.ru/1.x/?ll=30.2642,59.8944&amp;spn=0.1,0.1&amp;l=map&amp;size=400,400"></div><div class="width100"><p class="info-header">Данные о погоде в городе Санкт-Петербург</p><div><div><label class="info-description">Текущая температура, °C:</label><label class="info-value">1.7</label></div><div><label class="info-description">Ощущается как, °C:</label><label class="info-value">-2.79</label></div><div><label class="info-description">Влажность, %:</label><label class="info-value">94</label></div><div><label class="info-description">Направление ветра, °:</label><label class="info-value">210</label></div><div><label class="info-description">Скорость ветра, м/с:</label><label class="info-value">5</label></div><div><label class="info-description">Облачность, %:</label><label class="info-value">75</label></div></div></div></div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value=""></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"><button class="history-item" id="Санкт-Петербург">Санкт-Петербург: 1.7°C (01.02.2026, 00:00:00)</button></div></div></div><div class="flex-container border"><div content="weather-map"><img class="weather-map" alt="Карта Санкт-Петербург" src="https://static-maps.yandex.ru/1.x/?ll=30.2642,59.8944&amp;spn=0.1,0.1&amp;l=map&amp;size=400,400"></div><div class="width100"><p class="info-header">Данные о погоде в городе Санкт-Петербург</p><div><div><label class="info-description">Текущая температура, °C:</label><label class="info-value">1.7</label></div><div><label class="info-description">Ощущается как, °C:</label><label class="info-value">-2.79</label></div><div><label class="info-description">Влажность, %:</label><label class="info-value">94</label></div><div><label class="info-description">Направление ветра, °:</label><label class="info-value">210</label></div><div><label class="info-description">Скорость ветра, м/с:</label><label class="info-value">5</label></div><div><label class="info-description">Облачность, %:</label><label class="info-value">75</label></div></div></div></div></div></div>"`,
     );
   });
 
@@ -320,7 +320,7 @@ describe("Check runApp", () => {
     );
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border menu-item-active">О приложении</a><a class="menu-item border">Погода в городах</a></div><div class="border"><h2>Приложение "Погода"</h2><p>Разработчик: Тропин А.Б.</p></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border menu-item-active">О приложении</button><button class="menu-item border">Погода в городах</button></div><div class="border"><h2>Приложение "Погода"</h2><p>Разработчик: Тропин А.Б.</p></div></div>"`,
     );
   });
 
@@ -346,7 +346,7 @@ describe("Check runApp", () => {
     let historyItems = null;
     await waitFor(() => {
       jest.advanceTimersByTime(100);
-      historyItems = container.querySelectorAll("a.history-item");
+      historyItems = container.querySelectorAll("button.history-item");
       expect(historyItems).not.toHaveLength(0);
     });
 
@@ -368,7 +368,7 @@ describe("Check runApp", () => {
     let historyItems2 = null;
     await waitFor(() => {
       jest.advanceTimersByTime(100);
-      historyItems2 = container.querySelectorAll("a.history-item");
+      historyItems2 = container.querySelectorAll("button.history-item");
       expect(historyItems2).not.toHaveLength(historyItems.length);
     });
 
@@ -380,7 +380,7 @@ describe("Check runApp", () => {
     }
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value="Москва"></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"><li><a class="history-item" id="Москва">Москва: 1.7°C (01.02.2026, 00:00:02)</a></li><li><a class="history-item" id="Санкт-Петербург">Санкт-Петербург: 1.7°C (01.02.2026, 00:00:00)</a></li></ul></div></div><div class="flex-container border"><div content="weather-map"><img class="weather-map" alt="Карта Москва" src="https://static-maps.yandex.ru/1.x/?ll=30.2642,59.8944&amp;spn=0.1,0.1&amp;l=map&amp;size=400,400"></div><div class="width100"><p class="info-header">Данные о погоде в городе Москва</p><div><div><label class="info-description">Текущая температура, °C:</label><label class="info-value">1.7</label></div><div><label class="info-description">Ощущается как, °C:</label><label class="info-value">-2.79</label></div><div><label class="info-description">Влажность, %:</label><label class="info-value">94</label></div><div><label class="info-description">Направление ветра, °:</label><label class="info-value">210</label></div><div><label class="info-description">Скорость ветра, м/с:</label><label class="info-value">5</label></div><div><label class="info-description">Облачность, %:</label><label class="info-value">75</label></div></div></div></div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value="Москва"></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"><button class="history-item" id="Москва">Москва: 1.7°C (01.02.2026, 00:00:02)</button><button class="history-item" id="Санкт-Петербург">Санкт-Петербург: 1.7°C (01.02.2026, 00:00:00)</button></div></div></div><div class="flex-container border"><div content="weather-map"><img class="weather-map" alt="Карта Москва" src="https://static-maps.yandex.ru/1.x/?ll=30.2642,59.8944&amp;spn=0.1,0.1&amp;l=map&amp;size=400,400"></div><div class="width100"><p class="info-header">Данные о погоде в городе Москва</p><div><div><label class="info-description">Текущая температура, °C:</label><label class="info-value">1.7</label></div><div><label class="info-description">Ощущается как, °C:</label><label class="info-value">-2.79</label></div><div><label class="info-description">Влажность, %:</label><label class="info-value">94</label></div><div><label class="info-description">Направление ветра, °:</label><label class="info-value">210</label></div><div><label class="info-description">Скорость ветра, м/с:</label><label class="info-value">5</label></div><div><label class="info-description">Облачность, %:</label><label class="info-value">75</label></div></div></div></div></div></div>"`,
     );
 
     if (historyItems2 && historyItems2[1]) {
@@ -402,7 +402,7 @@ describe("Check runApp", () => {
       let historyItems3 = null;
       await waitFor(() => {
         jest.advanceTimersByTime(100);
-        historyItems3 = container.querySelectorAll("a.history-item");
+        historyItems3 = container.querySelectorAll("button.history-item");
         expect((historyItems3[0] as HTMLElement).innerHTML).toContain(
           successDataWeather.name,
         );
@@ -418,7 +418,7 @@ describe("Check runApp", () => {
     }
 
     expect(container.innerHTML).toMatchInlineSnapshot(
-      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><a class="menu-item border">О приложении</a><a class="menu-item border menu-item-active">Погода в городах</a></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value="Санкт-Петербург"></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><ul class="history-wh"><li><a class="history-item" id="Санкт-Петербург">Санкт-Петербург: 1.7°C (01.02.2026, 00:00:04)</a></li><li><a class="history-item" id="Москва">Москва: 1.7°C (01.02.2026, 00:00:02)</a></li></ul></div></div><div class="flex-container border"><div content="weather-map"><img class="weather-map" alt="Карта Санкт-Петербург" src="https://static-maps.yandex.ru/1.x/?ll=30.2642,59.8944&amp;spn=0.1,0.1&amp;l=map&amp;size=400,400"></div><div class="width100"><p class="info-header">Данные о погоде в городе Санкт-Петербург</p><div><div><label class="info-description">Текущая температура, °C:</label><label class="info-value">1.7</label></div><div><label class="info-description">Ощущается как, °C:</label><label class="info-value">-2.79</label></div><div><label class="info-description">Влажность, %:</label><label class="info-value">94</label></div><div><label class="info-description">Направление ветра, °:</label><label class="info-value">210</label></div><div><label class="info-description">Скорость ветра, м/с:</label><label class="info-value">5</label></div><div><label class="info-description">Облачность, %:</label><label class="info-value">75</label></div></div></div></div></div></div>"`,
+      `"<div class="WeatherApp"><h1 class="header">Приложение 'Погода' (React)</h1><div class="menu"><button class="menu-item border">О приложении</button><button class="menu-item border menu-item-active">Погода в городах</button></div><div><div class="flex-container"><form class="border"><label class="input-description" id="cityLabel">Показать погоду в городе:<input class="input" id="cityName" type="text" value="Санкт-Петербург"></label></form><div class="border width100"><p class="info-header">История просмотра данных о погоде</p><div class="history-wh"><button class="history-item" id="Санкт-Петербург">Санкт-Петербург: 1.7°C (01.02.2026, 00:00:04)</button><button class="history-item" id="Москва">Москва: 1.7°C (01.02.2026, 00:00:02)</button></div></div></div><div class="flex-container border"><div content="weather-map"><img class="weather-map" alt="Карта Санкт-Петербург" src="https://static-maps.yandex.ru/1.x/?ll=30.2642,59.8944&amp;spn=0.1,0.1&amp;l=map&amp;size=400,400"></div><div class="width100"><p class="info-header">Данные о погоде в городе Санкт-Петербург</p><div><div><label class="info-description">Текущая температура, °C:</label><label class="info-value">1.7</label></div><div><label class="info-description">Ощущается как, °C:</label><label class="info-value">-2.79</label></div><div><label class="info-description">Влажность, %:</label><label class="info-value">94</label></div><div><label class="info-description">Направление ветра, °:</label><label class="info-value">210</label></div><div><label class="info-description">Скорость ветра, м/с:</label><label class="info-value">5</label></div><div><label class="info-description">Облачность, %:</label><label class="info-value">75</label></div></div></div></div></div></div>"`,
     );
   });
 });

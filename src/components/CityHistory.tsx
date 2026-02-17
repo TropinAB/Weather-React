@@ -13,16 +13,27 @@ export function CityHistory({
   return (
     <div className="border width100">
       <p className="info-header">История просмотра данных о погоде</p>
-      {historyData && (
-        <ul
-          className="history-wh"
-          onClick={(e) => onChangeCityName((e.target as HTMLLinkElement).id)}
-        >
-          {historyData.map((history: WeatherHistory) => (
+      <div
+        className="history-wh"
+        onClick={(e) => onChangeCityName((e.target as HTMLLinkElement).id)}
+      >
+        {historyData &&
+          historyData.map((history: WeatherHistory) => (
             <CityHistoryRow key={history.city} history={history} />
           ))}
-        </ul>
-      )}
+      </div>
     </div>
   );
 }
+/*
+ */
+/*
+<ul
+  className="history-wh"
+  onClick={(e) => onChangeCityName((e.target as HTMLLinkElement).id)}
+>
+  {historyData.map((history: WeatherHistory) => (
+    <CityHistoryRow key={history.city} history={history} />
+  ))}
+</ul>
+/**/

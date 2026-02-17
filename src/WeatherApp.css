@@ -12,9 +12,10 @@ body {
 }
 
 .header {
-  font-size: 64px;
+  font-size: 52px;
   color: orange;
   text-align: center;
+  margin: 10px;
 }
 
 .border {
@@ -43,6 +44,7 @@ body {
   display: block;
   text-align: center;
   font-weight: 700;
+  margin: 5px;
 }
 
 .info-description {
@@ -61,17 +63,21 @@ body {
 }
 
 .menu {
-  padding: 20px 0px;
+  padding: 5px 0px;
   background-color: cyan;
 }
 
 .menu-item {
+  font-size: 20px;
   background-color: lightcyan;
+}
+
+.menu-item:hover {
+  background-color: darkcyan;
 }
 
 .menu-item-active {
   font-weight: bold;
-  /* color: red; */
 }
 
 .input-description {
@@ -106,8 +112,22 @@ body {
 
 .history-wh {
   column-count: 2;
+  column-gap: 10px;
+  margin: 0 auto;
 }
 
 .history-item {
-  text-decoration: underline;
+  display: block;
+  margin: 0 0 5px 0;
+  padding: 5px;
+  font-size: 20px;
+  width: 100%;
+  background-color: lightcyan;
+  border: 1px;
+  border-style: solid;
+  border-radius: 10px;
+}
+
+.history-item:hover {
+  background-color: cyan;
 }

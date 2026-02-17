@@ -9,6 +9,11 @@ class EventBus {
   /// очистить все события
   clearEvents(): void {
     this.events && this.events.clear();
+    //остановить таймеры
+    for (let timerID of this.eventsTimerId.values()) {
+      clearTimeout(timerID);
+    }
+    this.eventsTimerId.clear();
   }
 
   /// добавить слушателя события

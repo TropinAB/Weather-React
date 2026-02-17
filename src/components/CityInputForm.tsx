@@ -6,7 +6,7 @@ export function CityInputForm({
   onChange: any;
 }) {
   return (
-    <form className="border">
+    <form className="border" onSubmit={(e) => e.preventDefault()}>
       <label className="input-description" id="cityLabel">
         Показать погоду в городе:
         <input

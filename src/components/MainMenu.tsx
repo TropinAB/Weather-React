@@ -7,14 +7,14 @@ export function MainMenu({
 }) {
   function MenuItem({ id, text }: { id: string; text: string }) {
     return (
-      <a
+      <button
         className={
           "menu-item border" + (currentPage === id ? " menu-item-active" : "")
         }
         onClick={() => onClick(id)}
       >
         {text}
-      </a>
+      </button>
     );
   }
 

@@ -1,5 +1,4 @@
 import "./WeatherApp.css";
-import { PageHeader } from "./components/PageHeader";
 import { MainMenu } from "./components/MainMenu";
 import { City } from "./pages/City";
 import { About } from "./pages/About";
@@ -11,7 +10,7 @@ export function WeatherApp() {
 
   return (
     <div className="WeatherApp">
-      <PageHeader />
+      <h1 className="header">Приложение 'Погода' (React)</h1>
       <MainMenu currentPage={currentPage} onClick={setCurrentPage} />
       {currentPage === "City" && (
         <City cityName={cityName} onChangeCityName={setCityName} />

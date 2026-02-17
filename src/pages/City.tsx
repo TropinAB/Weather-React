@@ -26,6 +26,10 @@ export function City({ cityName, onChangeCityName }: CityProps) {
   useEffect(() => {
     eventBus.on(weatherHistory.eventNameResult, setHistoryData);
     eventBus.trigger(weatherHistory.eventNameGetWH);
+
+    return () => {
+      eventBus.off(weatherHistory.eventNameResult, setHistoryData);
+    };
   }, []); //загрузить историю городов
 
   useEffect(() => {
@@ -46,6 +50,16 @@ export function City({ cityName, onChangeCityName }: CityProps) {
       eventBus.on(geo.eventNameError, setMessage);
       eventBus.trigger(geo.eventNameCall);
     }
+
+    return () => {
+      if (cityName) {
+        eventBus.off(weather.eventNameResult, setWeatherData);
+        eventBus.off(weather.eventNameError, setMessage);
+      } else {
+        eventBus.off(geo.eventNameResult, setLocationData);
+        eventBus.off(geo.eventNameError, setMessage);
+      }
+    };
   }, [cityName]);
 
   useEffect(() => {
@@ -69,6 +83,11 @@ export function City({ cityName, onChangeCityName }: CityProps) {
         locationData.longitude,
       );
     }
+
+    return () => {
+      eventBus.off(weather.eventNameResult, setWeatherData);
+      eventBus.off(weather.eventNameError, setMessage);
+    };
   }, [locationData]);
 
   useEffect(() => {
@@ -80,16 +99,16 @@ export function City({ cityName, onChangeCityName }: CityProps) {
     } else {
       setMessage("Не удалось получить данные о погоде :("); // очистить сообщение
     }
-  }, [weatherData]);
 
-  function handlerChangeCityName(newCityName: string) {
-    onChangeCityName(newCityName);
-  }
+    return () => {
+      eventBus.off(weatherHistory.eventNameResult, setHistoryData);
+    };
+  }, [weatherData]);
 
   return (
     <div>
       <div className="flex-container">
-        <CityInputForm cityName={cityName} onChange={handlerChangeCityName} />
+        <CityInputForm cityName={cityName} onChange={onChangeCityName} />
         <CityHistory
           historyData={historyData}
           onChangeCityName={onChangeCityName}
