@@ -1,118 +1,37 @@
 import { useEffect, useState } from "react";
-import { eventBus } from "../services/EventBus";
-import * as geo from "../services/geoJS";
-import * as weather from "../services/openWeatherMap";
-import * as weatherHistory from "../services/weatherHistory";
 
 import { CityHistory } from "../components/CityHistory";
 import { CityInputForm } from "../components/CityInputForm";
 import { CityMap } from "../components/CityMap";
 import { CityWeather } from "../components/CityWeather";
-import { GeoJSLocation } from "../types/geoJS";
-import { WeatherData } from "../types/openWeatherMap";
-import { WeatherHistory } from "../types/weatherHistory";
 
-interface CityProps {
-  cityName: string;
-  onChangeCityName: (cityName: string) => void;
-}
+import { useWeatherData } from "../hooks/useWeatherData";
+import { useDebounce } from "../hooks/useDebounce";
+import { useWeatherHistory } from "../hooks/useWeatherHistory";
 
-export function City({ cityName, onChangeCityName }: CityProps) {
-  const [message, setMessage] = useState<string>("");
-  const [locationData, setLocationData] = useState<GeoJSLocation | null>();
-  const [weatherData, setWeatherData] = useState<WeatherData | null>();
-  const [historyData, setHistoryData] = useState<WeatherHistory[]>([]);
-
-  useEffect(() => {
-    eventBus.on(weatherHistory.eventNameResult, setHistoryData);
-    eventBus.trigger(weatherHistory.eventNameGetWH);
-
-    return () => {
-      eventBus.off(weatherHistory.eventNameResult, setHistoryData);
-    };
-  }, []); //загрузить историю городов
+export function City() {
+  const [cityName, setCityName] = useState<string>("");
+  const debouncedCityName = useDebounce<string>(cityName, 1000);
+  const [checkLocation, setCheckLocation] = useState<boolean>(true);
+  const {
+    loading,
+    data: weatherData,
+    error,
+  } = useWeatherData(debouncedCityName, checkLocation);
+  const [historyData, addToWeatherHistory] = useWeatherHistory();
 
   useEffect(() => {
-    if (cityName) {
-      setMessage(`Загрузка данных погоды для годода ${cityName}`);
-
-      eventBus.on(weather.eventNameResult, setWeatherData);
-      eventBus.on(weather.eventNameError, setMessage);
-      eventBus.triggerDebounced(
-        1000,
-        weather.eventNameRequestForCity,
-        cityName,
-      );
-    } else {
-      // Запросить текущие координаты
-      setMessage("Определение текущего местоположения");
-      eventBus.on(geo.eventNameResult, setLocationData);
-      eventBus.on(geo.eventNameError, setMessage);
-      eventBus.trigger(geo.eventNameCall);
+    if (weatherData) {
+      setCheckLocation(false); // больше не определять расположение при очистке города
+      addToWeatherHistory(weatherData);
     }
-
-    return () => {
-      if (cityName) {
-        eventBus.off(weather.eventNameResult, setWeatherData);
-        eventBus.off(weather.eventNameError, setMessage);
-      } else {
-        eventBus.off(geo.eventNameResult, setLocationData);
-        eventBus.off(geo.eventNameError, setMessage);
-      }
-    };
-  }, [cityName]);
-
-  useEffect(() => {
-    if (locationData === undefined) return;
-    if (
-      !locationData ||
-      !locationData.latitude ||
-      !locationData.longitude ||
-      locationData.latitude === "nil" ||
-      locationData.longitude === "nil"
-    ) {
-      setMessage("Не удалось получить данные о местоположении :(");
-    } else {
-      setMessage("Загрузка данных погоды по координатам");
-
-      eventBus.on(weather.eventNameResult, setWeatherData);
-      eventBus.on(weather.eventNameError, setMessage);
-      eventBus.trigger(
-        weather.eventNameRequestForLocation,
-        locationData.latitude,
-        locationData.longitude,
-      );
-    }
-
-    return () => {
-      eventBus.off(weather.eventNameResult, setWeatherData);
-      eventBus.off(weather.eventNameError, setMessage);
-    };
-  }, [locationData]);
-
-  useEffect(() => {
-    if (weatherData === undefined) return;
-    if (weatherData && weatherData.name) {
-      eventBus.on(weatherHistory.eventNameResult, setHistoryData);
-      eventBus.trigger(weatherHistory.eventNameAddToWH, weatherData);
-      setMessage(""); // очистить сообщение
-    } else {
-      setMessage("Не удалось получить данные о погоде :("); // очистить сообщение
-    }
-
-    return () => {
-      eventBus.off(weatherHistory.eventNameResult, setHistoryData);
-    };
   }, [weatherData]);
 
   return (
-    <div>
+    <>
       <div className="flex-container">
-        <CityInputForm cityName={cityName} onChange={onChangeCityName} />
-        <CityHistory
-          historyData={historyData}
-          onChangeCityName={onChangeCityName}
-        />
+        <CityInputForm cityName={cityName} onChange={setCityName} />
+        <CityHistory historyData={historyData} onChangeCityName={setCityName} />
       </div>
       {weatherData && (
         <div className="flex-container border">
@@ -124,7 +43,8 @@ export function City({ cityName, onChangeCityName }: CityProps) {
           <CityWeather weatherData={weatherData} />
         </div>
       )}
-      {message && <div className="border message">{message}</div>}
-    </div>
+      {error && <div className="border message error">{error}</div>}
+      {loading && <div className="border message">Загрузка данных</div>}
+    </>
   );
 }
