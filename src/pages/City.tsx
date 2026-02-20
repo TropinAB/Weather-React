@@ -34,8 +34,8 @@ export function City() {
 
   // 2. если кликнули по истории - сменить текущую страницу
   function handleChangeCityName(city: string) {
-    (city !== cityName) && setCityName("");
-    (city && city !== paramsCityName) && navigate(PREFIX + "city/" + city);
+    city !== cityName && setCityName("");
+    city && city !== paramsCityName && navigate(PREFIX + "city/" + city);
   }
 
   // 3. если ввели название города - через 1с сменить текущую страницу
