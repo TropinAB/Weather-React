@@ -10,7 +10,7 @@ export function WeatherApp() {
       <div className="WeatherApp">
         <Routes>
           <Route element={<Header />}>
-            <Route index element={<City />} />
+            <Route index path={PREFIX} element={<City />} />
             <Route path={PREFIX + "about"} element={<About />} />
             <Route path={PREFIX + "city"}>
               <Route index element={<City />} />
