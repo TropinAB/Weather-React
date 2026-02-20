@@ -63,22 +63,16 @@ body {
 }
 
 .menu {
-  height: 55px;
-  /* vertical-align: middle; */
-  /* align-content: center; */
-  /* padding: 5px 0px; */
-  /* background-color: cyan; */
+  padding: 5px 0px;
 }
 
 .menu-item {
   font-size: 20px;
   background-color: lightcyan;
-  /* margin: 10px; */
 }
 
 .menu-item:hover {
   background-color: cyan;
-  /* background-color: darkcyan; */
 }
 
 .menu-item-active {
