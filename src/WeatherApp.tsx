@@ -1,18 +1,31 @@
 import "./WeatherApp.css";
-import { MainMenu } from "./components/MainMenu";
+import { Route, Routes } from "react-router";
 import { City } from "./pages/City";
 import { About } from "./pages/About";
-import { useState } from "react";
+import { Header } from "./components/Header";
 
 export function WeatherApp() {
-  const [currentPage, setCurrentPage] = useState<string>("City");
-
   return (
-    <div className="WeatherApp">
-      <h1 className="header">Приложение 'Погода' (React)</h1>
-      <MainMenu currentPage={currentPage} onClick={setCurrentPage} />
-      {currentPage === "City" && <City />}
-      {currentPage === "About" && <About />}
-    </div>
+    <>
+      <div className="WeatherApp">
+        <Routes>
+          <Route element={<Header />}>
+            <Route index path={PREFIX} element={<City />} />
+            <Route path={PREFIX + "about"} element={<About />} />
+            <Route path={PREFIX + "city"}>
+              <Route index element={<City />} />
+              <Route path=":city" element={<City />} />
+            </Route>
+          </Route>
+          <Route path="*" element={<div>404: Страница не найдена</div>} />
+        </Routes>
+      </div>
+    </>
   );
 }
+
+//         <hr />
+//         <div className="header">Приложение 'Погода' (React 1)</div>
+//         <MainMenu currentPage={currentPage} onClick={setCurrentPage} />
+// { currentPage === "City" && <City /> }
+// { currentPage === "About" && <About /> }

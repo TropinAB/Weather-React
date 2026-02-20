@@ -64,7 +64,6 @@ body {
 
 .menu {
   padding: 5px 0px;
-  background-color: cyan;
 }
 
 .menu-item {
@@ -73,7 +72,7 @@ body {
 }
 
 .menu-item:hover {
-  background-color: darkcyan;
+  background-color: cyan;
 }
 
 .menu-item-active {
