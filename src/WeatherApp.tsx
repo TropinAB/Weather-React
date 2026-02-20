@@ -14,9 +14,10 @@ export function WeatherApp() {
             <Route path={PREFIX + "about"} element={<About />} />
             <Route path={PREFIX + "city"}>
               <Route index element={<City />} />
-              <Route index path=":city" element={<City />} />
+              <Route path=":city" element={<City />} />
             </Route>
           </Route>
+          <Route path="*" element={<div>}404: Страница не найдена</div>} />
         </Routes>
       </div>
     </>
