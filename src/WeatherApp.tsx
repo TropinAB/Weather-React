@@ -17,7 +17,7 @@ export function WeatherApp() {
               <Route path=":city" element={<City />} />
             </Route>
           </Route>
-          <Route path="*" element={<div>}404: Страница не найдена</div>} />
+          <Route path="*" element={<div>404: Страница не найдена</div>} />
         </Routes>
       </div>
     </>
